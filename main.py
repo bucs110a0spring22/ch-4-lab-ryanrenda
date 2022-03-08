@@ -1,17 +1,43 @@
 import turtle
+import math
 
-########### Your Code here ##############
-# You should only have functions here
-# If you have anything outside of a function, 
-# then you do not fully understand functions
-# and should review how they work or ask for help
+def drawSineCurve(dart):
+  for i in range(0, 721):
+    y = math.sin(math.radians(i-360))
+    x = math.radians(i-360)
+    dart.goto(x, y)
+  dart.up()
 
+def setupWindow(wn):
+  wn.setworldcoordinates(-2*math.pi, -1, 2*math.pi, 1)
+  wn.bgcolor("lightblue")
+  
+def setupAxis(dart):
+  dart.up()
+  dart.goto(0, 1)
+  dart.down()
+  dart.goto(0, -1)
+  dart.up()
+  dart.goto(2*math.pi, 0)
+  dart.down()
+  dart.goto(-2*math.pi, 0)
 
-
-
-
-
-
+def drawCosineCurve(dart):
+  dart.goto(-2*math.pi, 1)
+  dart.down()
+  for i in range(0, 721):
+    y = math.cos(math.radians(i-360))
+    x = math.radians(i-360)
+    dart.goto(x, y)
+  dart.up()
+  
+def drawTangentCurve(dart):
+  dart.goto(-2*math.pi, 0)
+  dart.down()
+  for i in range(0, 721):
+    y = math.tan(math.radians(i-360))
+    x = math.radians(i-360)
+    dart.goto(x, y)
 
 ##########  Do Not Alter Any Code Past Here ########
 def main():
